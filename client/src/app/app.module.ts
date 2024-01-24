@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 
 import { PasswordModule } from "./common/components/password/password.module";
 import { PasswordTdFormModule } from "./common/components/password-td-form/password-td-form.module";
-import { UtilsModule } from "./common/utils/utils.module";
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { UtilsModule } from "./common/utils/utils.module";
     BrowserModule,
 
     PasswordModule,
-    // PasswordTdFormModule,
-    // UtilsModule,
+    PasswordTdFormModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
