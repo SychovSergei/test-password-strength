@@ -13,7 +13,7 @@ import { UtilsModule } from "./common/utils/utils.module";
   imports: [
     BrowserModule,
 
-    // PasswordModule,
+    PasswordModule,
     // PasswordTdFormModule,
     // UtilsModule,
   ],

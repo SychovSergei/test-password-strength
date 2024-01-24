@@ -1,0 +1,13 @@
+
+$form-valid-color: green;
+$form-valid-border-color: green;
+$form-invalid-color: red;
+$form-invalid-border-color: red;
+
+.ng-valid:not(form).ng-dirty, .ng-valid.required  {
+  border: 2px solid $form-valid-border-color;
+}
+
+.ng-invalid:not(form).ng-dirty  {
+  border: 2px solid $form-invalid-border-color;
+}
