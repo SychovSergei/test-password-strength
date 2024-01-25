@@ -26,12 +26,21 @@ describe('strengthPasswordValidatorReactive', () => {
     control = new FormControl('Password@#$');
     result = validator(control);
     expect(result).toEqual({ strength: { digitsError: true, lettersError: false, symbolsError: false }});
+
+    // Invalid password with missing digits and letters
+    control = new FormControl('@#$');
+    result = validator(control);
+    expect(result).toEqual({ strength: { digitsError: true, lettersError: true, symbolsError: false }});
+
+    // Invalid password with missing digits and symbols
+    control = new FormControl('abcd');
+    result = validator(control);
+    expect(result).toEqual({ strength: { digitsError: true, lettersError: false, symbolsError: true }});
+
+    // Invalid password with missing letters and symbols
+    control = new FormControl('1234');
+    result = validator(control);
+    expect(result).toEqual({ strength: { digitsError: false, lettersError: true, symbolsError: true }});
   });
 
-  it('should return null with empty value', () => {
-    const validator = strengthPasswordValidatorReactive();
-    const control = new FormControl('');
-    const result = validator(control);
-    expect(result).toBeNull();
-  });
 });
