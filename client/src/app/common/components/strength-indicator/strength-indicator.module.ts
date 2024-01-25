@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { StrengthIndicatorComponent } from "./strength-indicator.component";
-import { PasswordStrengthService } from "../../services/password-strength.service";
+import { PasswordStrengthService } from "../../../shared/services/password-strength.service";
 
 @NgModule({
   imports: [

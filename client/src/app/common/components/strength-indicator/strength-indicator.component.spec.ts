@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subscription } from "rxjs";
 
 import { StrengthIndicatorComponent } from './strength-indicator.component';
-import { EPasswordStrength } from "../../enums";
+import { EPasswordStrength } from "../../../shared/enums";
 
 describe('StrengthIndicatorComponent', () => {
   let component: StrengthIndicatorComponent;

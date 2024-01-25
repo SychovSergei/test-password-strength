@@ -1,7 +1,7 @@
 import { ComponentRef, Directive, ElementRef, HostListener, OnDestroy, OnInit, ViewContainerRef } from "@angular/core";
 
 import { EPasswordStrength} from "../enums";
-import { StrengthIndicatorComponent} from "../components/strength-indicator/strength-indicator.component";
+import { StrengthIndicatorComponent} from "../../common/components/strength-indicator/strength-indicator.component";
 import { PasswordStrengthService } from "../services/password-strength.service";
 
 @Directive({

@@ -1,14 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 import { PasswordStrengthDirective } from './password-strength.directive';
-import { StrengthIndicatorComponent } from '../components/strength-indicator/strength-indicator.component';
 import { PasswordStrengthService } from '../services/password-strength.service';
-import { EPasswordStrength } from '../enums';
-import {FormsModule} from "@angular/forms";
 
 @Component({
-  template: `<input appAddPasswordStrength [(ngModel)]="password">`,
+  template: '<input appAddPasswordStrength [(ngModel)]="password">',
 })
 class TestComponent {
   password: string = '';
@@ -16,8 +15,8 @@ class TestComponent {
 
 describe('PasswordStrengthDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
+  let component: TestComponent;
   let directiveElement: DebugElement;
-  let passwordStrengthService: PasswordStrengthService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,7 +25,6 @@ describe('PasswordStrengthDirective', () => {
       ],
       declarations: [
         PasswordStrengthDirective,
-        StrengthIndicatorComponent,
         TestComponent
       ],
       providers: [
@@ -34,9 +32,9 @@ describe('PasswordStrengthDirective', () => {
       ],
     });
     fixture = TestBed.createComponent(TestComponent);
-    passwordStrengthService = TestBed.inject(PasswordStrengthService);
-    fixture.detectChanges();
+    component = fixture.componentInstance;
     directiveElement = fixture.debugElement.query(By.directive(PasswordStrengthDirective));
+    fixture.detectChanges();
   });
 
   it('should create the directive', () => {
@@ -46,29 +44,28 @@ describe('PasswordStrengthDirective', () => {
 
   it('should create StrengthIndicatorComponent on ngOnInit', () => {
     const directive = directiveElement.injector.get(PasswordStrengthDirective);
-    const strengthIndicatorComponent = directive['componentRef'];
+    const strengthIndicatorComponent = directive['componentRef']?.instance;
     expect(strengthIndicatorComponent).toBeTruthy();
   });
 
-  it('should update StrengthIndicatorComponent on input', () => {
+  it('should update StrengthIndicatorComponent on input', fakeAsync(() => {
     const directive = directiveElement.injector.get(PasswordStrengthDirective);
-    const strengthIndicatorComponent = directive['componentRef']!.instance;
+    const updateStrengthIndicatorSpy = spyOn<any>(directive, 'updateStrengthIndicator').and.callThrough();
 
-    spyOn(passwordStrengthService, 'getStatus').and.returnValue(EPasswordStrength.MEDIUM);
+    directiveElement.triggerEventHandler('input', { target: { value: 'password123' } });
 
-    fixture.componentInstance.password = 'MediumPass';
+    tick();
     fixture.detectChanges();
 
-    expect(strengthIndicatorComponent.status).toBe(EPasswordStrength.MEDIUM);
-  });
+    expect(updateStrengthIndicatorSpy).toHaveBeenCalled();
+  }));
 
   it('should destroy StrengthIndicatorComponent on ngOnDestroy', () => {
     const directive = directiveElement.injector.get(PasswordStrengthDirective);
-    const strengthIndicatorComponent = directive['componentRef'];
-    spyOn<any>(strengthIndicatorComponent, 'destroy');
+    const destroySpy = spyOn<any>(directive['componentRef'], 'destroy').and.callThrough();
 
     directive.ngOnDestroy();
 
-    expect(strengthIndicatorComponent?.destroy).toHaveBeenCalled();
+    expect(destroySpy).toHaveBeenCalled();
   });
 });

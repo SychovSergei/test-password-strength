@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { StrengthIndicatorModule } from "../strength-indicator/strength-indicator.module";
 import { PasswordTdFormComponent } from './password-td-form.component';
-import { UtilsModule } from "../../utils/utils.module";
+import { UtilsModule } from "../../../shared/utils/utils.module";
 import { PasswordModule } from "../password/password.module";
 import { StrengthPasswordValidatorDirective } from "./strength-password-validator.directive";
 

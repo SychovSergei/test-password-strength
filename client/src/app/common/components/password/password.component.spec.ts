@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import { PasswordComponent } from './password.component';
-import {UtilsModule} from "../../utils/utils.module";
-import {StrengthIndicatorModule} from "../strength-indicator/strength-indicator.module";
-import { FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {EPasswordStrength} from "../../enums";
-import {IRequestData} from "../../models/password-form.interface";
-import {PasswordStrengthService} from "../../services/password-strength.service";
+import { UtilsModule } from "../../../shared/utils/utils.module";
+import { StrengthIndicatorModule } from "../strength-indicator/strength-indicator.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { EPasswordStrength } from "../../../shared/enums";
+import { IRequestData } from "../../models/password-form.interface";
+import { PasswordStrengthService } from "../../../shared/services/password-strength.service";
 
 describe('PasswordComponent', () => {
   let component: PasswordComponent;

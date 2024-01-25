@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-import { DIGITS_REGEXP, LETTERS_REGEXP, SYMBOLS_REGEXP } from "../../items";
+import { DIGITS_REGEXP, LETTERS_REGEXP, SYMBOLS_REGEXP } from "../../../shared/items";
 
 export function strengthPasswordValidatorReactive(): ValidatorFn {
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { EPasswordStrength } from "../../enums";
+import { EPasswordStrength } from "../../../shared/enums";
 import { Subject, Subscription } from "rxjs";
 
 

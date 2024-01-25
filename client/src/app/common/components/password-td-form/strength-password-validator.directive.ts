@@ -1,7 +1,7 @@
 import { Directive } from "@angular/core";
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from "@angular/forms";
 
-import { DIGITS_REGEXP, LETTERS_REGEXP, SYMBOLS_REGEXP } from "../../items";
+import { DIGITS_REGEXP, LETTERS_REGEXP, SYMBOLS_REGEXP } from "../../../shared/items";
 
 @Directive({
   selector: '[appStrengthValidation]',

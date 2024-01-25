@@ -4,9 +4,9 @@ import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
 
 import { PasswordTdFormComponent } from './password-td-form.component';
-import { UtilsModule } from "../../utils/utils.module";
+import { UtilsModule } from "../../../shared/utils/utils.module";
 import { StrengthPasswordValidatorDirective } from "./strength-password-validator.directive";
-import {PasswordStrengthService} from "../../services/password-strength.service";
+import {PasswordStrengthService} from "../../../shared/services/password-strength.service";
 
 describe('PasswordTdFormComponent', () => {
   let component: PasswordTdFormComponent;

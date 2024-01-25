@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
 
 import { strengthPasswordValidatorReactive } from "./strength-password-validator-reactive.directive";
-import { EPasswordStrength } from "../../enums";
+import { EPasswordStrength } from "../../../shared/enums";
 import { IRequestData } from "../../models/password-form.interface";
-import { PasswordStrengthService } from "../../services/password-strength.service";
+import { PasswordStrengthService } from "../../../shared/services/password-strength.service";
 
 
 @Component({
