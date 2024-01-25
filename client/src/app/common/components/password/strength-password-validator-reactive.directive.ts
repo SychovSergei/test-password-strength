@@ -9,7 +9,7 @@ export function strengthPasswordValidatorReactive(): ValidatorFn {
     const symbolsError = !SYMBOLS_REGEXP.test(control.value);
 
     return digitsError || lettersError || symbolsError
-      ? { strength: { digitsError: !digitsError, lettersError: !lettersError, symbolsError: !symbolsError }}
+      ? { strength: { digitsError, lettersError, symbolsError }}
       : null
   };
 
