@@ -1,4 +1,9 @@
-# Client
+# Password Test App
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+
+## The application deployed to firebase hosting https://password-strength-b6ea9.web.app
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
